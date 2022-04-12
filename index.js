@@ -8,6 +8,11 @@ let player = () => {//creates player ones movements
     return player1
 }
 
+let pushArrayItems = (x,y,selection) =>{//pushes the players selection into the maxtrix
+gameArray.gameboard[x].splice(y,1,selection)
+console.table(gameArray.gameboard)
+}
+
 const initiate = () => {//inistializes matrix 
     let count = 1;
     for(let i = 0;i<gameArray.gameboard.length;i++){
@@ -18,8 +23,7 @@ const initiate = () => {//inistializes matrix
             createTD.setAttribute("id",`number${count}`);
             createTD.addEventListener('click',e=>{//adds an exvent listener to each element to return coordinated on matrix along with player selection
                 e.target.textContent = player()
-                let coor = [i,y]
-                console.table(coor)
+                pushArrayItems(i,y,player())
             })
             createRow.appendChild(createTD);
             count+=1;
