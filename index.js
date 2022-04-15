@@ -35,8 +35,8 @@ function buttonReset(){
     xCountColumn = 0
     oCountRow = 0  
     oCountColumn = 0  
-    acrossCountX = 0 
-    acrossCount0 = 0
+    xCountCross = 0
+    oCountCross = 0
     
 }
 
