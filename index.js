@@ -28,6 +28,8 @@ let gameFLow = () => {
 }
 
 function buttonReset(){
+    document.querySelector("#playersTurn").textContent = `Current Player: x`
+    gameCount = 0
     gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
     resetContainer()
     initiate()
@@ -56,6 +58,9 @@ let checkWinner = () => {
             xCountRow++
             }else if(gameArray.gameboard[i][j]===gameArray.gameboard[i][j-1] && gameArray.gameboard[i][j] === "o"){
             oCountRow++
+            }else{
+                xCountRow = 0 
+                oCountRow = 0
             }
         }
     }
@@ -124,13 +129,16 @@ const initiate = () => {//inistializes matrix
             let createTD = document.createElement("td");
             createTD.setAttribute("id",`number${count}`);
             createTD.addEventListener('click',e=>{//adds an event listener to each element to return coordinated on matrix along with player selection
+                
                 if(gameArray.gameboard[i][y] === " "){
                 pushArrayItems(i,y,gameFLow())
                 e.target.textContent = gameFLow()
                 if(gameCount===0){
                     gameCount++
+                    document.querySelector("#playersTurn").textContent = `Current Player: ${gameFLow()}`
                 }else if(gameCount===1){
                     gameCount--
+                    document.querySelector("#playersTurn").textContent = `Current Player: ${gameFLow()}`
                 }
                 }
                 checkWinner()
