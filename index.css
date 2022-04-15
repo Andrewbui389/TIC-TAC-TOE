@@ -4,6 +4,8 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #9bbfbb;
 }
 
 
@@ -19,6 +21,7 @@ td{
     border: solid;
     text-align: center;
     font-size: 2em;
+    background-color: white;
 }
 
 #resetButton{

@@ -56,11 +56,10 @@ let checkWinner = () => {
             }
             if(gameArray.gameboard[i][j]===gameArray.gameboard[i][j-1] && gameArray.gameboard[i][j] === "x" ){
             xCountRow++
-            }else if(gameArray.gameboard[i][j]===gameArray.gameboard[i][j-1] && gameArray.gameboard[i][j] === "o"){
+            }
+
+            if(gameArray.gameboard[i][j]===gameArray.gameboard[i][j-1] && gameArray.gameboard[i][j] === "o"){
             oCountRow++
-            }else{
-                xCountRow = 0 
-                oCountRow = 0
             }
         }
     }
