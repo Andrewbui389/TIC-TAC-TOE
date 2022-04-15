@@ -45,8 +45,6 @@ let checkWinner = () => {
     let oCountRow = 0
     let xCountColumn = 0
     let oCountColumn = 0
-    let acrossCountX = 0
-    let acrossCount0 = 0
     for(let i = 0;i<3;i++){
         for(let j = 1;j<3;j++){
             if(gameArray.gameboard[i][j]===' '){
@@ -72,7 +70,7 @@ let checkWinner = () => {
     }
 }
 
-        if(xCountRow === 2 || xCountColumn === 2 || acrossCountX === 3){
+        if(xCountRow === 2 || xCountColumn === 2){
             console.log("player1 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
@@ -82,7 +80,7 @@ let checkWinner = () => {
             oCountRow = 0  
             oCountColumn = 0      
         }
-        if(oCountRow === 2 || oCountColumn === 2 || acrossCount0 === 3){
+        if(oCountRow === 2 || oCountColumn === 2){
             console.log("player2 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
