@@ -45,6 +45,8 @@ let checkWinner = () => {
     let oCountRow = 0
     let xCountColumn = 0
     let oCountColumn = 0
+    let xCountCross = 0
+    let oCountCross = 0
     for(let i = 0;i<3;i++){
         for(let j = 1;j<3;j++){
             if(gameArray.gameboard[i][j]===' '){
@@ -69,8 +71,18 @@ let checkWinner = () => {
             }
     }
 }
+    for(let i = 0;i<2;i++){
+        if(gameArray.gameboard[i][i]===' '){
+            continue
+    }
+        if(gameArray.gameboard[i][i]===gameArray.gameboard[i+1][i+1] && gameArray.gameboard[i][i] === "x" ){
+            xCountCross++
+        }else if(gameArray.gameboard[i][i]===gameArray.gameboard[i+1][i+1] && gameArray.gameboard[i][i] === "o"){
+            oCountCross++
+        }
+}
 
-        if(xCountRow === 2 || xCountColumn === 2){
+        if(xCountRow === 2 || xCountColumn === 2 || xCountCross === 2){
             console.log("player1 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
@@ -78,9 +90,11 @@ let checkWinner = () => {
             xCountRow = 0 
             xCountColumn = 0
             oCountRow = 0  
-            oCountColumn = 0      
+            oCountColumn = 0   
+            xCountCross = 0
+            oCountCross = 0   
         }
-        if(oCountRow === 2 || oCountColumn === 2){
+        if(oCountRow === 2 || oCountColumn === 2 || oCountCross === 2){
             console.log("player2 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
@@ -89,6 +103,8 @@ let checkWinner = () => {
             xCountColumn = 0
             oCountRow = 0  
             oCountColumn = 0
+            xCountCross = 0
+            oCountCross = 0 
         }
 }
 
