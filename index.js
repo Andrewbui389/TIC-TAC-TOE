@@ -37,8 +37,10 @@ function buttonReset(){
     xCountColumn = 0
     oCountRow = 0  
     oCountColumn = 0  
-    xCountCross = 0
-    oCountCross = 0
+    xCountCrossOne = 0
+    oCountCrossOne = 0
+    xCountCrossTwo = 0
+    oCountCrossTwo = 0
     
 }
 
@@ -47,8 +49,10 @@ let checkWinner = () => {
     let oCountRow = 0
     let xCountColumn = 0
     let oCountColumn = 0
-    let xCountCross = 0
-    let oCountCross = 0
+    let xCountCrossOne = 0
+    let oCountCrossOne = 0
+    let xCountCrossTwo = 0
+    let oCountCrossTwo = 0
     for(let i = 0;i<3;i++){
         for(let j = 1;j<3;j++){
             if(gameArray.gameboard[i][j]===' '){
@@ -62,31 +66,59 @@ let checkWinner = () => {
             oCountRow++
             }
         }
+        if(xCountRow!==2){
+            xCountRow = 0
+        }
+        if(oCountRow!==2){
+            oCountRow = 0
+        }
+
     }
-    for(let i = 1;i<3;i++){
-        for(let j = 0;j<3;j++){
-            if(gameArray.gameboard[i][j]===' '){
+
+    for(let i = 0;i<3;i++){//Column
+        for(let j = 1;j<3;j++){
+            if(gameArray.gameboard[j][i]===' '){
                 continue
         }
-            if(gameArray.gameboard[i][j]===gameArray.gameboard[i-1][j] && gameArray.gameboard[i][j] === "x" ){
+            if(gameArray.gameboard[j][i]===gameArray.gameboard[j-1][i] && gameArray.gameboard[j][i] === "x" ){
                 xCountColumn++
-            }else if(gameArray.gameboard[i][j]===gameArray.gameboard[i-1][j] && gameArray.gameboard[i][j] === "o"){
+            }else if(gameArray.gameboard[j][i]===gameArray.gameboard[j-1][i] && gameArray.gameboard[j][i] === "o"){
                 oCountColumn++
             }
     }
+    if(xCountColumn!==2){
+        xCountColumn = 0
+    }
+    if(oCountColumn!==2){
+        oCountColumn = 0
+    }
 }
-    for(let i = 0;i<2;i++){
+    for(let i = 0;i<2;i++){//CrossOne
         if(gameArray.gameboard[i][i]===' '){
             continue
-    }
+        }
         if(gameArray.gameboard[i][i]===gameArray.gameboard[i+1][i+1] && gameArray.gameboard[i][i] === "x" ){
-            xCountCross++
+            xCountCrossOne++
         }else if(gameArray.gameboard[i][i]===gameArray.gameboard[i+1][i+1] && gameArray.gameboard[i][i] === "o"){
-            oCountCross++
+            oCountCrossOne++
         }
 }
+let j = 0
+    for(let i = 2;i>0;i--){//CrossTwo
+        
+        if(gameArray.gameboard[i][j]===' '){
+            continue
+        }
+        if(gameArray.gameboard[i][j]===gameArray.gameboard[i-1][j+1] && gameArray.gameboard[i][j] === "x" ){
+            console.log(xCountCrossTwo)
+            xCountCrossTwo++
+        }else if(gameArray.gameboard[i][j]===gameArray.gameboard[i-1][j+1] && gameArray.gameboard[i][j] === "o"){
+            oCountCrossTwo++
+        }
+        j++
+}
 
-        if(xCountRow === 2 || xCountColumn === 2 || xCountCross === 2){
+        if(xCountRow === 2 || xCountColumn === 2 || xCountCrossOne === 2 || xCountCrossTwo == 2){
             console.log("player1 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
@@ -95,10 +127,12 @@ let checkWinner = () => {
             xCountColumn = 0
             oCountRow = 0  
             oCountColumn = 0   
-            xCountCross = 0
-            oCountCross = 0   
+            xCountCrossOne = 0
+            oCountCrossOne = 0
+            xCountCrossTwo = 0
+            oCountCrossTwo = 0 
         }
-        if(oCountRow === 2 || oCountColumn === 2 || oCountCross === 2){
+        if(oCountRow === 2 || oCountColumn === 2 || oCountCrossOne === 2 || oCountCrossTwo == 2){
             console.log("player2 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
@@ -107,8 +141,10 @@ let checkWinner = () => {
             xCountColumn = 0
             oCountRow = 0  
             oCountColumn = 0
-            xCountCross = 0
-            oCountCross = 0 
+            xCountCrossOne = 0
+            oCountCrossOne = 0
+            xCountCrossTwo = 0
+            oCountCrossTwo = 0
         }
 }
 
