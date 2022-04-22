@@ -1,4 +1,5 @@
 const board = (() => {
+let winner = document.querySelector('.winner')
 let gameCount = 0
 
 let gameArray = {
@@ -119,7 +120,7 @@ let j = 0
 }
 
         if(xCountRow === 2 || xCountColumn === 2 || xCountCrossOne === 2 || xCountCrossTwo == 2){
-            console.log("player1 Wins");
+            winner.textContent = ("Player: 1 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
             initiate()
@@ -133,7 +134,7 @@ let j = 0
             oCountCrossTwo = 0 
         }
         if(oCountRow === 2 || oCountColumn === 2 || oCountCrossOne === 2 || oCountCrossTwo == 2){
-            console.log("player2 Wins");
+            winner.textContent = ("Player: 2 Wins");
             gameArray.gameboard = [[" "," "," "],[" "," "," "],[" "," "," "]]
             resetContainer()
             initiate()

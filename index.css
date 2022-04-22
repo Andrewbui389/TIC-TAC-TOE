@@ -32,6 +32,10 @@ td{
     border: 0;
 }
 
+.winner{
+    font-weight: bold;
+}
+
 @media screen and (max-width: 900px) {
     .container{
         width:50vw;
